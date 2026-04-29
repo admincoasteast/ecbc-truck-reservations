@@ -1,0 +1,206 @@
+:root {
+  --color-primary: #1f4e8c;
+  --color-primary-hover: #163b6b;
+  --color-secondary-bg: #eef2f7;
+  --color-secondary-border: #cdd6e0;
+  --color-text: #1c2330;
+  --color-muted: #5b6878;
+  --color-bg: #f7f9fc;
+  --color-card: #ffffff;
+  --color-checkout: #c8531f;
+  --color-reserved: #1f4e8c;
+  --color-pending: #b58900;
+  --color-error: #b31d1d;
+  --shadow: 0 4px 16px rgba(20, 30, 50, 0.08);
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.4;
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 32px;
+  background: var(--color-card);
+  border-bottom: 1px solid #e3e8ef;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+}
+.btn-primary:hover { background: var(--color-primary-hover); }
+.btn-primary:disabled { background: #6c7a8c; cursor: not-allowed; }
+
+.btn-secondary {
+  background: var(--color-secondary-bg);
+  color: var(--color-text);
+  border-color: var(--color-secondary-border);
+}
+.btn-secondary:hover { background: #dfe6ee; }
+
+main {
+  max-width: 1100px;
+  margin: 24px auto 80px;
+  padding: 0 24px;
+}
+
+.banner {
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+.banner.success { background: #e6f4ea; color: #1d5d2c; border: 1px solid #b8dec0; }
+.banner.error   { background: #fde7e7; color: #8a1818; border: 1px solid #f1b6b6; }
+.banner.info    { background: #e6effa; color: #133b73; border: 1px solid #b9cce6; }
+
+.calendar-wrap {
+  background: var(--color-card);
+  padding: 16px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+#calendar { min-height: 600px; }
+
+.legend {
+  display: flex;
+  gap: 24px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--color-muted);
+}
+.legend-item { display: inline-flex; align-items: center; gap: 6px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.dot-checkout { background: var(--color-checkout); }
+.dot-reserved { background: var(--color-reserved); }
+.dot-pending  { background: var(--color-pending); }
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 30, 50, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 50;
+}
+
+.modal-content {
+  background: var(--color-card);
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 520px;
+  padding: 28px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(20, 30, 50, 0.25);
+}
+
+.modal-content h2 { margin: 0 0 6px; }
+.modal-help { color: var(--color-muted); font-size: 14px; margin-top: 0; }
+
+.modal-close {
+  position: absolute;
+  top: 12px; right: 12px;
+  background: transparent; border: none; cursor: pointer;
+  font-size: 24px; line-height: 1; color: var(--color-muted);
+}
+
+#reserve-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--color-muted);
+  margin-bottom: 14px;
+}
+
+#reserve-form input,
+#reserve-form textarea {
+  padding: 10px 12px;
+  border: 1px solid var(--color-secondary-border);
+  border-radius: 8px;
+  font-size: 15px;
+  color: var(--color-text);
+  font-family: inherit;
+  background: white;
+}
+
+#reserve-form .row {
+  display: flex;
+  gap: 12px;
+}
+#reserve-form .row label { flex: 1; }
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.form-error {
+  margin: 12px 0 0;
+  color: var(--color-error);
+  font-size: 13px;
+}
+
+footer {
+  text-align: center;
+  color: var(--color-muted);
+  padding: 24px;
+}
+
+@media (max-width: 600px) {
+  .site-header { padding: 16px; }
+  .brand h1 { font-size: 22px; }
+  #reserve-form .row { flex-direction: column; gap: 0; }
+}

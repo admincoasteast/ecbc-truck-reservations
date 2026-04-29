@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECBC Truck Reservations</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- FullCalendar v6 (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <h1>ECBC Truck</h1>
+      <p class="subtitle">Reservations &amp; check-in / check-out history</p>
+    </div>
+    <div class="header-actions">
+      <a id="outlook-link" class="btn btn-secondary" href="#" target="_blank" rel="noopener">
+        Subscribe in Outlook
+      </a>
+      <button id="reserve-btn" class="btn btn-primary" type="button">
+        Request a Reservation
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section id="status-banner" class="banner" hidden></section>
+
+    <section class="calendar-wrap">
+      <div id="calendar"></div>
+    </section>
+
+    <section class="legend">
+      <span class="legend-item"><span class="dot dot-checkout"></span> Checked out</span>
+      <span class="legend-item"><span class="dot dot-reserved"></span> Approved reservation</span>
+      <span class="legend-item"><span class="dot dot-pending"></span> Pending approval</span>
+    </section>
+  </main>
+
+  <!-- Reservation modal -->
+  <div id="reserve-modal" class="modal" hidden>
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+      <h2>Request the ECBC Truck</h2>
+      <p class="modal-help">
+        Jeremy Lynch will receive an email with Approve / Deny buttons. You'll get a confirmation when he decides.
+      </p>
+      <form id="reserve-form">
+        <label>
+          Your name
+          <input type="text" name="requesterName" required maxlength="120" />
+        </label>
+        <label>
+          Your email
+          <input type="email" name="requesterEmail" required maxlength="240" />
+        </label>
+        <div class="row">
+          <label>
+            Pick-up
+            <input type="datetime-local" name="startAt" required />
+          </label>
+          <label>
+            Return
+            <input type="datetime-local" name="endAt" required />
+          </label>
+        </div>
+        <label>
+          Reason / what you'll use it for
+          <textarea name="reason" required rows="4" maxlength="1000"
+            placeholder="e.g. Moving sound equipment for the youth retreat on Friday."></textarea>
+        </label>
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="modal-cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="submit-btn">Send Request</button>
+        </div>
+        <p id="form-error" class="form-error" hidden></p>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <small>East Coast Believers Church &middot; Powered by AssetBots</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

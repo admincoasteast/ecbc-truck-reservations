@@ -1,0 +1,31 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "FUNCTIONS_EXTENSION_VERSION": "~4",
+
+    "ASSETBOTS_API_BASE": "https://api.assetbots.com",
+    "ASSETBOTS_API_KEY": "your-assetbots-api-key-here",
+    "ASSETBOTS_ASSET_ID": "the-id-or-tag-of-the-ECBC-Truck",
+
+    "RESERVATIONS_TABLE_CONN": "DefaultEndpointsProtocol=https;AccountName=...;AccountKey=...;EndpointSuffix=core.windows.net",
+    "RESERVATIONS_TABLE_NAME": "TruckReservations",
+
+    "APPROVER_EMAIL": "jlynch@eastcoastbelievers.org",
+    "FROM_EMAIL": "no-reply@eastcoastbelievers.org",
+    "FROM_NAME": "ECBC Truck",
+
+    "SMTP_HOST": "smtp.office365.com",
+    "SMTP_PORT": "587",
+    "SMTP_SECURE": "false",
+    "SMTP_USER": "no-reply@eastcoastbelievers.org",
+    "SMTP_PASS": "the-app-password-or-smtp-password",
+
+    "PUBLIC_BASE_URL": "https://your-static-web-app.azurestaticapps.net",
+    "APPROVAL_TOKEN_SECRET": "generate-a-long-random-string-and-paste-here"
+  },
+  "Host": {
+    "CORS": "*"
+  }
+}
